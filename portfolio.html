@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Portfolio</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <button id="dark-mode-toggle">Toggle Dark Mode</button>
+  </header>
+
+  <section id="about" class="section">
+    <div class="container">
+      <h1>Hi, I'm <span class="typewriter"></span></h1>
+      <p>
+        I'm a passionate software developer skilled in building responsive and scalable applications. 
+        I specialize in front-end development using React.js and TypeScript, and back-end development with Express, Node.js, and PostgreSQL.As a software engineering student, I have honed my skills through hands-on skills in building responsive web applications using React.js,Express.js, and PostgreSQL.I also have strong understanding of Git/GitHub workflows, modern JavaScript (ES6+), and TypeScript
+      </p>
+      <a href="resume.pdf" class="btn" download>Download Resume</a>
+    </div>
+  </section>
+
+  <section id="skills" class="section">
+    <div class="container">
+      <h2>Skills</h2>
+      <ul>
+        <li>Git & GitHub</li>
+        <li>HTML, CSS, JavaScript & TypeScript</li>
+        <li>React.js</li>
+        <li>Express.js</li>
+        <li>PostgreSQL</li>
+        <li>Node.js</li>
+        <li>Bash Scripting</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="projects" class="section">
+    <div class="container">
+      <h2>Projects</h2>
+      <div class="project-grid">
+        <div class="project-card">
+          <h3>Project 1</h3>
+          <p>A React.js application with a Node.js backend and PostgreSQL database.</p>
+          <a href="#" class="btn">View Project</a>
+        </div>
+        <div class="project-card">
+          <h3>Project 2</h3>
+          <p>A full-stack TypeScript application using Express and React.</p>
+          <a href="#" class="btn">View Project</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="section">
+    <div class="container">
+      <h2>Contact Me</h2>
+      <p>Feel free to reach out to me for collaborations or job opportunities!</p>
+      <form id="contact-form">
+        <label for="name">Your Name:</label>
+        <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+        <label for="email">Your Email:</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required><br>
+
+        <label for="message">Your Message:</label><br>
+        <textarea id="message" name="message" placeholder="Type your message here..." required></textarea><br>
+
+        <button type="submit" class="btn">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2024 Collins Kiprotich. All rights reserved.</p>
+    <div class="social-links">
+      <a href="https://www.linkedin.com/in/colkimi" target="_blank">LinkedIn</a>
+      <a href="https://github.com/Colkimi" target="_blank">GitHub</a>
+    </div>
+  </footer>
+
+  <script>
+    // Dark Mode Toggle
+    const toggleButton = document.getElementById('dark-mode-toggle');
+    const body = document.body;
+
+    // Load saved mode from localStorage
+    if (localStorage.getItem('dark-mode') === 'enabled') {
+      body.classList.add('dark-mode');
+    }
+
+    toggleButton.addEventListener('click', () => {
+      body.classList.toggle('dark-mode');
+      localStorage.setItem('dark-mode', body.classList.contains('dark-mode') ? 'enabled' : 'disabled');
+    });
+
+    // Typewriter Effect
+    const typewriterText = "Collins Kiprotich";
+    const typewriterElement = document.querySelector(".typewriter");
+
+    let index = 0;
+    function typeWriter() {
+      if (index < typewriterText.length) {
+        typewriterElement.textContent += typewriterText.charAt(index);
+        index++;
+        setTimeout(typeWriter, 150);
+      }
+    }
+    typeWriter();
+
+    // Form Submission
+    document.getElementById('contact-form').addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent actual form submission
+
+      // Get input values
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const message = document.getElementById('message').value;
+
+      // Construct the mailto link
+      const subject = encodeURIComponent("New Contact Form Message from " + name);
+      const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
+      
+      const mailtoLink = `mailto:colkimib@gmail.com?subject=${subject}&body=${body}`;
+
+      // Open the default email client
+      window.location.href = mailtoLink;
+    });
+  </script>
+</body>
+</html>
