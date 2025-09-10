@@ -11,7 +11,7 @@
 <body>
 
   <header>
-    <nav>
+    <nav aria-label="Main Navigation">
       <ul>
         <li><a href="#about">About</a></li>
         <li><a href="#skills">Skills</a></li>
@@ -19,24 +19,32 @@
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
-    <button id="dark-mode-toggle">Toggle Dark Mode</button>
+    <button id="dark-mode-toggle" aria-label="Toggle dark mode">🌓</button>
   </header>
+
+  <section class="hero">
+    <div class="container">
+      <h1>Hi, I'm <span class="typewriter"></span></h1>
+      <p class="subtitle">Software Engineer & Web Developer</p>
+      <a href="#projects" class="btn primary">See My Work</a>
+    </div>
+  </section>
 
   <section id="about" class="section">
     <div class="container">
-      <h1>Hi, I'm <span class="typewriter"></span></h1>
+      <h2>About Me</h2>
       <p>
-        I'm a passionate software developer skilled in building responsive and scalable applications. 
-        I specialize in front-end development using React.js and TypeScript, and back-end development with Express, Node.js, and PostgreSQL.As a software engineering student, I have honed my skills through hands-on skills in building responsive web applications using React.js,Express.js, and PostgreSQL.I also have strong understanding of Git/GitHub workflows, modern JavaScript (ES6+), and TypeScript
+        I'm Collins Kiprotich, a passionate software developer focused on building responsive, scalable, and user-friendly applications. My expertise includes front-end development with React.js and TypeScript, and back-end development using Express, Node.js, and PostgreSQL.<br><br>
+        As a software engineering student, I've honed my skills through hands-on projects, mastering modern JavaScript (ES6+), TypeScript, and Git/GitHub workflows. I enjoy solving problems and collaborating on innovative solutions.
       </p>
-      <a href="resume.pdf" class="btn" download>Download Resume</a>
+      <a href="resume.pdf" class="btn secondary" download aria-label="Download my resume (PDF)">Download Resume</a>
     </div>
   </section>
 
   <section id="skills" class="section">
     <div class="container">
       <h2>Skills</h2>
-      <ul>
+      <ul class="skills-list">
         <li>Git & GitHub</li>
         <li>HTML, CSS, JavaScript & TypeScript</li>
         <li>React.js</li>
@@ -53,14 +61,16 @@
       <h2>Projects</h2>
       <div class="project-grid">
         <div class="project-card">
+          <img src="https://placehold.co/300x180?text=Project+1" alt="Screenshot of Project 1" class="project-img">
           <h3>Project 1</h3>
           <p>A React.js application with a Node.js backend and PostgreSQL database.</p>
-          <a href="#" class="btn">View Project</a>
+          <a href="#" class="btn tertiary" aria-label="View Project 1">View Project</a>
         </div>
         <div class="project-card">
+          <img src="https://placehold.co/300x180?text=Project+2" alt="Screenshot of Project 2" class="project-img">
           <h3>Project 2</h3>
           <p>A full-stack TypeScript application using Express and React.</p>
-          <a href="#" class="btn">View Project</a>
+          <a href="#" class="btn tertiary" aria-label="View Project 2">View Project</a>
         </div>
       </div>
     </div>
@@ -69,27 +79,29 @@
   <section id="contact" class="section">
     <div class="container">
       <h2>Contact Me</h2>
-      <p>Feel free to reach out to me for collaborations or job opportunities!</p>
-      <form id="contact-form">
+      <p>Feel free to reach out for collaborations or job opportunities!</p>
+      <form id="contact-form" autocomplete="off">
         <label for="name">Your Name:</label>
-        <input type="text" id="name" name="name" placeholder="Enter your name" required>
+        <input type="text" id="name" name="name" placeholder="Enter your name" required aria-required="true">
 
         <label for="email">Your Email:</label>
-        <input type="email" id="email" name="email" placeholder="Enter your email" required><br>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required aria-required="true"><br>
 
         <label for="message">Your Message:</label><br>
-        <textarea id="message" name="message" placeholder="Type your message here..." required></textarea><br>
+        <textarea id="message" name="message" placeholder="Type your message here..." required aria-required="true"></textarea><br>
 
-        <button type="submit" class="btn">Send Message</button>
+        <button type="submit" class="btn primary">Send Message</button>
       </form>
     </div>
   </section>
 
   <footer>
-    <p>&copy; 2024 Collins Kiprotich. All rights reserved.</p>
-    <div class="social-links">
-      <a href="https://www.linkedin.com/in/colkimi" target="_blank">LinkedIn</a>
-      <a href="https://github.com/Colkimi" target="_blank">GitHub</a>
+    <div class="container">
+      <p>&copy; 2024 Collins Kiprotich. All rights reserved.</p>
+      <div class="social-links">
+        <a href="https://www.linkedin.com/in/colkimi" target="_blank" aria-label="LinkedIn profile">LinkedIn</a>
+        <a href="https://github.com/Colkimi" target="_blank" aria-label="GitHub profile">GitHub</a>
+      </div>
     </div>
   </footer>
 
